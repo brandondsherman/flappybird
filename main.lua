@@ -1,5 +1,6 @@
 push = require  'libs/push'
-
+Class = require 'libs/class'
+require 'obj/Bird'
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 
@@ -14,6 +15,8 @@ local ground = love.graphics.newImage('data/ground.png')
 local groundScroll = 0
 local GROUND_SCROLL_SPEED = 60
 --local GROUND_LOOPING_POINT = VIRTUAL_WIDTH
+
+local bird = Bird()
 
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -51,6 +54,8 @@ function love.draw()
     push:start()
     love.graphics.draw(background, -1 * backgroundScroll, 0)
     love.graphics.draw(ground, -1 * groundScroll, VIRTUAL_HEIGHT - 16)
+
+    bird:draw()
 
     push:finish()
 end

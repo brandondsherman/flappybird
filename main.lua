@@ -10,6 +10,8 @@ require 'obj/PipePair'
 require 'obj/BaseState'
 require 'obj/PlayState'
 require 'obj/TitleScreenState'
+require 'obj/ScoreState'
+require 'obj/CountdownState'
 
 
 
@@ -57,6 +59,8 @@ function love.load()
     gStateMachine = StateMachine {
         ['title'] = function() return TitleScreenState() end,
         ['play'] = function() return PlayState() end,
+        ['score'] = function() return ScoreState() end,
+        ['countdown'] = function() return CountdownState() end,
     }
 
     gStateMachine:change('title')
